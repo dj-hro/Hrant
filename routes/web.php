@@ -48,6 +48,7 @@ Route::get('login/facebook/callback', 'FacebookAuthController@handleProviderCall
 });
 
 Route::match(['get', 'post'], '/addandviewpictures', ['uses' => 'AddAndViewPictures@index', 'as' =>'addandviewpictures']);
+Route::get('/deletepicture', ['uses' => 'DeletePicture@index', 'as' =>'deletepicture']);
 // Route::group(['middleware' => 'web'], function () {
 
 // Route::get('login/google', 'GoogleAuthController@redirectToProvider');

@@ -94,3 +94,31 @@ $(document).ready(function(){
 
 // 	})
 // </script>
+
+
+$(document).ready(function(){
+        $('#show_picture_add_field').on('click', function(){
+            $('.div_for_adding_picture_form').slideToggle()
+        })
+    })
+
+
+$(document).ready(function(){
+        $(".delete_user_picture").click(function(){         
+            var id = $(this).attr("name");
+                console.log(id);
+                $.ajax({
+                    url: "/deletepicture",
+                    type: "get",
+                    data: ({pictureid:id}),
+                    success: function(result){
+                            if(result == 1){
+                                $("."+id).hide();
+                            }
+                    }
+                })      
+            
+
+                    
+        })
+    })

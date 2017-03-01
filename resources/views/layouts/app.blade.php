@@ -12,7 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/mystyle.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/lightbox.css') }}">
+
 
 
 
@@ -28,7 +30,7 @@
         ]) !!};
     </script>
 </head>
-<body>
+<body class="my_bodi_for_my_project">
 
              
         @if (Auth::guest())
@@ -63,6 +65,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/lightbox.js') }}"></script>
 
 </body>
 </html>

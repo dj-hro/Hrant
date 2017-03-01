@@ -5,13 +5,7 @@
 <ul class="ul_for_navbar">
   <li class="li_for_navbar"><a href="{{route('home')}}">Home</a></li>
   <li class="li_for_navbar"><a href="#news">Search Users</a></li>
-  <li id="menu" class="li_for_navbar"><a style="cursor: pointer;">Comments</a>
-    <ul id="sub-menu" class="ul_for_navbar">
-          <li><a href="{{route('comments')}}">All Comments</a></li>
-          <li><a href="{{route('mycomments')}}">My Comments</a></li>
-          <li><a href="{{route('addcomment')}}">Add Comment</a></li>
-    </ul>
-  </li>
+  <li class="li_for_navbar"><a href="#Not Yet" >Not Yet</a></li>
   <li class="li_for_navbar"><a href="#about">About</a></li>
   <li style="float: right;" class="li_for_navbar"><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

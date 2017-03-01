@@ -9,14 +9,14 @@
 
         <!-- Fonts -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/mystyle.css') }}">
 
         <!-- Styles -->
         <style>
 
         </style>
     </head>
-    <body>
+    <body class="my_bodi_for_my_project">
 
 
                    

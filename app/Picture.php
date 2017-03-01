@@ -8,5 +8,5 @@ class Picture extends Model
 {
     protected $table='pictures';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['picture', 'explains', 'user_id'];
 }

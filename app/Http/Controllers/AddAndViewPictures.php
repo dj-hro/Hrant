@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Picture;
 
 class AddAndViewPictures extends Controller
 {
@@ -15,50 +16,48 @@ class AddAndViewPictures extends Controller
 
     public function index(Request $request){
 
-    	if($request->isMethod('get'))
+    	if($request->isMethod('get')){
 
     	$id = Auth::user()->id;
     		
     	$user = User::find($id);
-    	dd($user->pictures);
-    	return view('AddAndViewPictures')->with(['comments' => $comments]);
-    }
+    	$userpics = $user->pictures;
+    	return view('AddAndViewPictures')->with(['userpics' => $userpics]);}
+    
 
-    // if($request->isMethod('post')){    
-
-
-    // 		$this->validate($request, [
-    // 									'text' => 'required',
-    //                                     'photo' => 'image'
-    // 									]);
+     if($request->isMethod('post')){    
 
 
+     		$this->validate($request, [     									
+                                        'picture' => 'image|required'
+    									]);
 
-    //     if ($request->hasFile('photo')) {
 
-    //         $image = $request->file('photo');
-    //         $fname = time() . '.' . $image->getClientOriginalExtension();
-    //         $request->file('photo')->move(public_path('/uploads/'), $fname);
-    //     }
 
-    //     else{
+        if ($request->hasFile('picture')) {
 
-    //         $fname = 'img.jpg';
-    //     }
+            $image = $request->file('picture');            
+            $fname = time() . '.' . $image->getClientOriginalExtension();
+            $request->file('picture')->move(public_path('/uploads/UsersPictures/'), $fname);
+         }
 
-    // 	$id = $request->id;
-    // 	$name = $request->name;
-    // 	$text = $request->text;
+    
 
-    // 	Comment::create([
-    //             'image' => "$fname",
-    // 			'name' => "$name",
-    // 			'comment' => "$text",
-    // 			'user_id' => "$id"
+     	$id = $request->id;
+     	$explain = $request->explain;
 
-    // 		]);	
+     	
+    
 
-    // 	return redirect()->route('comments');			
+     	Picture::create([
+                'picture' => "$fname",
+    			'explains' => "$explain",     			
+     			'user_id' => "$id"
 
-    // 	}
+    		]);	
+
+     	return redirect()->route('addandviewpictures');			
+
+     	}
+     }
 }
